@@ -14,6 +14,7 @@ export class AppComponent {
   includeSymbols = false;
 
   onChangeLength(value: string) {
+    this.clearPassword();
     const parsedValue = parseInt(value);
 
     if(!isNaN(parsedValue)) {
@@ -22,15 +23,22 @@ export class AppComponent {
   }
 
   onChangeUseLetters() {
+    this.clearPassword();
     this.includeLetters = !this.includeLetters;
   }
 
   onChangeUseNumbers() {
+    this.clearPassword();
     this.includeNumbers = !this.includeNumbers;
   }
 
   onChangeUseSymbols() {
+    this.clearPassword();
     this.includeSymbols = !this.includeSymbols;
+  }
+
+  clearPassword() {
+    this.password = '';
   }
 
   onButtonClick() {
